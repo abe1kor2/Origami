@@ -1,0 +1,125 @@
+#titlebar {
+    padding: 8px;
+}
+
+#title {
+    color: whitesmoke;
+    font-family: 'Lato', sans-serif;
+}
+
+#logo {
+    height: 50px;
+    width: 50px;    
+}
+
+#dashboard-btn {
+    margin-right: 35px;
+}
+
+#search-img {
+    height: 15px;
+    width: 15px;
+}
+
+#search-input {
+    font-family: 'Lato', sans-serif;    
+}
+
+#search-btn {
+    display: flex;
+    justify-content: space-around;
+    height: 30px;
+    width: 30px;
+}
+
+#navbar {
+    margin-left: 30px;
+}
+
+.navitem {
+    margin-inline: 8px;
+    display: flex;
+}
+
+#account-overview {
+    margin: 10px;
+    padding: 7px;
+}
+
+#balance-chart-container {
+    width: 225px;
+    height: 225px;
+}
+
+.value-label {
+    margin-inline-start: 8px;
+}
+
+#detailed-view {
+    display: flex;
+    flex-direction: column;
+}
+
+#cur-value-block {
+    display: flex;
+    align-items: baseline;
+}
+
+#position-options {
+    background-color: whitesmoke;
+}
+
+#shares-to-buy {
+    width: 70px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+#cash-amount {
+    width: 110px;
+    font-family: 'Lato', sans-serif;
+}
+
+#manage-account {
+    margin-top: 20px;
+}
+
+#money-btns {
+    margin-top: 10px;
+}
+
+.money-btn {
+    margin-right: 7px;
+}
+
+.cur-price {
+    margin-right: 15px;
+    height: 40px;
+    display: flex;
+    justify-content:space-evenly;
+    padding-top: 8px;
+    width: 100px;
+}
+
+.list-group {
+    width: 1000px;
+}
+
+.position-symbol {
+    width: 70px;
+}
+
+#market-val {
+    width: 200px
+}
+
+.tabl {
+    margin-top: 20px;
+}
+
+.stock-btn {
+    margin-top: 10px;
+}

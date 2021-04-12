@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Origami</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="dashboard.js"></script>
+  <script src="detailed_view.js"></script>
+</head>
+<body>
+  
+  <div id="titlebar" class="container-fluid bg-dark d-inline-flex">
+    <h1 id="title">Origami</h1>
+    <img src="images/logo.png" id="logo">
+  </div>
+  
+  <nav class="navbar navbar-dark bg-dark nav-justified">
+    <div class="container-fluid justify-content-start" id= "navbar">
+      <button type="button" class="btn btn-outline-light navitem" id="dashboard-btn">Dashboard</button>
+      <div class="navitem">
+        <button type="button" class="btn btn-light" id="search-btn">
+          <img src="images/search.jpeg" id="search-img">
+        </button>
+        <input type="text" id="search-input" placeholder="Search">
+        </div>
+    </div>
+  </nav>
+
+  <div id="dashboard" class="container-fluid">
+    <div id="account-overview">
+      <label for="combined-value" class="value value-label">Combined Value: </label>
+      <output name="combined-value" id="combined-value" class="value"></output>
+      <label for="market-value" class="value value-label">Market Value: </label>
+      <output name="market-value" id="market-value" class="value"></output>
+      <label for="cash" class="value value-label">Cash: </label>
+      <output name="cash" id="cash" class="value"></output>
+
+      <div id="balance-chart-container">
+        <canvas id="balanceChart"></canvas>
+      </div>
+    </div>
+
+    <div id="dashboard-btns">
+      <button type="button" class="btn btn-light" id="positions-btn">My Positions</button> 
+      <button type="button" class="btn btn-light" id="watchlist-btn">Watchlist</button>
+      <button type="button" class="btn btn-light" id="manage-account-btn">Manage Account</button>
+    </div>
+    <div class="container-fluid" id="position-table">
+      <output id="stock-list"></output>
+    </div>
+      <div class="container-fluid" id="manage-account">
+      <label for="cash-amount">Amount: $</label>
+      <input type="text" name="cash-amount" id="cash-amount" placeholder="0.00">
+      <div id="money-btns">
+        <button type="button" id="deposit-btn" class="btn btn-success money-btn">Deposit</button>
+        <button type="button" id="withdraw-btn" class="btn btn-outline-success money-btn">Withdraw</button>
+      </div>
+    </div>
+  </div>
+  <div id="detailed-view" class="container-fluid">
+    <div id="security-information" class="row">
+      <h1>
+        <output id="symbol-name"></output>
+      </h1>
+      <h3>
+        <output id="company-name"></output>
+      </h3>
+      <div id="cur-value-block">
+        <h2>
+          $<output id="cur-value"></output>
+        </h2>
+        <h4 class="text-muted">&nbsp;USD&nbsp;</h4>
+        <p class="text-muted">as of&nbsp;</p>
+        <output id="time-of-day"></output>
+      </div>
+      
+      <div id="symbol-details" class="container">
+        <div class="row">
+          <!-- TradingView Widget BEGIN -->
+          <div class="tradingview-widget-container">
+            <div id="tradingview_3787c"></div>
+            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
+            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+          </div>
+          <!-- TradingView Widget END -->
+        </div>
+        <div class="row" style="padding-bottom:5px;">
+          <label for="open" style="font-weight:600;">Open: </label>
+          <output name="open" id="open"></output>
+        </div>
+        <div class="row" style="padding-bottom:5px;">
+          <label for="high" style="font-weight:600;">High: </label>
+          <output name="high" id="high"></output>
+        </div>
+        <div class="row" style="padding-bottom:5px;">
+          <label for="low" style="font-weight:600;">Low: </label>
+          <output name="low" id="low"></output>
+        </div>
+        <div class="row" style="padding-bottom:5px;">
+          <label for="pc" style="font-weight:600;">Previous Close: </label>
+          <output name="pc" id="pc"></output>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid" id="position-options">
+      <div id="shares-owned-block">
+        <label for="shares-owned">Shares Owned: </label>
+        <output name="shares-owned" id="shares-owned"></output>
+      </div>
+      <div id="buy-sell">
+        <h3>Buy/Sell</h3>
+        <div id="num-shares">
+          <label for="shares-to-buy">Shares</label>
+          <input type="text" for="shares-to-buy" id="shares-to-buy" placeholder="0">
+        </div>  
+        <button type="button" class="btn btn-outline-success stock-btn" id="estimate-price-btn">Estimate Price</button>
+        <div>
+          <button type="button" class="btn btn-success stock-btn" id="buy-btn">Buy</button>
+          <button type="button" class="btn btn-danger stock-btn" id="sell-btn">Sell</button>
+          <button type="button" class="btn btn-outline-secondary stock-btn" id="add-to-watchlist-btn">Watch</button>
+          </div>
+      </div>
+    </div>
+  </div>  
+</body>
